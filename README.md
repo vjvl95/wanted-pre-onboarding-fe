@@ -26,6 +26,7 @@
 프로젝트 실행 방법:
     
     git clone https://github.com/vjvl95/wanted-pre-onboarding-fe.git
+    cd wanted-pre-onboarding-fe
     npm install
     npm start
 
