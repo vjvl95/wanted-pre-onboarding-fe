@@ -23,3 +23,9 @@
 >  >투두 리스트의 수정, 삭제 기능을 구현해주세요=>완료
 >  >![과제5](https://user-images.githubusercontent.com/62174495/185754980-8ea2105e-78b0-4c33-a118-7bec8812f11e.gif)
 
+프로젝트 실행 방법:
+    
+    git clone https://github.com/vjvl95/wanted-pre-onboarding-fe.git
+    npm install
+    npm start
+
