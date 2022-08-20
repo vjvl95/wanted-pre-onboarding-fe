@@ -1,70 +1,25 @@
-# Getting Started with Create React App
+># 1. 로그인 / 회원가입
+>  >## Assignment1
+>  >이메일과 비밀번호의 유효성 검사기능을 구현해주세요=>완료
+>  >![과제1](https://user-images.githubusercontent.com/62174495/185754961-5964e8a2-059e-4c04-b1da-e16d33e052d1.gif)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+>  ># Assignment2
+>  >로그인 API를 호출하고, 올바른 응답을 받았을 때 /todo 경로로 이동해주세요=>완료
+>  >![과제2](https://user-images.githubusercontent.com/62174495/185754965-a8ff7916-50d6-4737-b47a-706ea5271e59.gif)
 
-## Available Scripts
 
-In the project directory, you can run:
+>  ># Assignment3
+>  >로그인 여부에 따른 리다이렉트 처리를 구현해주세요=>완료
+>  >![과제3](https://user-images.githubusercontent.com/62174495/185755014-635ef301-cde6-46b5-b52a-691c4cb4785f.gif)
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+># 2. Todo List
+>  ># Assignment4
+>  >/todo경로에 접속하면 투두 리스트의 목록을 볼 수 있도록 해주세요=>완료
+>  >![과제4](https://user-images.githubusercontent.com/62174495/185755016-48c9a3f1-523e-461d-9117-4bf2aa8ff679.gif)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
+>  ># Assignment5
+>  >투두 리스트의 수정, 삭제 기능을 구현해주세요=>완료
+>  >![과제5](https://user-images.githubusercontent.com/62174495/185754980-8ea2105e-78b0-4c33-a118-7bec8812f11e.gif)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
