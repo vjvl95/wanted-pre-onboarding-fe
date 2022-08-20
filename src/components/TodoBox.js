@@ -10,6 +10,8 @@ function TodoBox({ todo, setTodolist }) {
       alert('삭제성공');
       const res = await API.get('/todos');
       setTodolist(res.data);
+      setUpdateTodo('');
+      setIsCompleted('');
     } catch (err) {
       alert('삭제실패');
     }
@@ -18,7 +20,7 @@ function TodoBox({ todo, setTodolist }) {
     setIsCompleted(!todo.isCompleted);
     await API.put(`/todos/${todo.id}`, {
       todo: todo.todo,
-      isCompleted: !todo.isCompleted
+      isCompleted: !todo.isCompleted,
     });
 
     const res = await API.get('/todos');
@@ -27,10 +29,9 @@ function TodoBox({ todo, setTodolist }) {
   async function UpdateHandler() {
     await API.put(`/todos/${todo.id}`, {
       todo: updateTodo,
-      isCompleted: todo.isCompleted
+      isCompleted: todo.isCompleted,
     });
     const res = await API.get('/todos');
-    console.log(res);
     setIsUpdate(false);
     setTodolist(res.data);
   }
@@ -56,7 +57,7 @@ function TodoBox({ todo, setTodolist }) {
             <input
               className="border-4 w-[200px] border-yellow-300"
               value={updateTodo}
-              onChange={e => setUpdateTodo(e.target.value)}
+              onChange={(e) => setUpdateTodo(e.target.value)}
             ></input>
           ) : (
             <>
@@ -72,12 +73,17 @@ function TodoBox({ todo, setTodolist }) {
       )}
       {isUpdate === false ? (
         <>
-          <button
-            onClick={() => setIsUpdate(true)}
-            className="ml-5 border-2 bg-pink-300 rounded-md border-red-300"
-          >
-            수정
-          </button>
+          {isCompleted === true ? null : (
+            <button
+              onClick={() => {
+                setIsUpdate(true);
+                setUpdateTodo(todo.todo);
+              }}
+              className="ml-5 border-2 bg-pink-300 rounded-md border-red-300"
+            >
+              수정
+            </button>
+          )}
 
           <button
             onClick={DeleteHandler}
