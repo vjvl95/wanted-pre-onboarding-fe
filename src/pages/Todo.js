@@ -34,10 +34,11 @@ function Todo() {
           <input
             placeholder="할일을 추가하세요"
             className="mt-[30px] border-4 w-[300px]"
-            onChange={e => {
+            onChange={(e) => {
               setTodo(e.target.value);
             }}
             value={todo}
+            maxlength="50"
           ></input>
           <p className="text-gray-300">최대글자 50자</p>
         </div>

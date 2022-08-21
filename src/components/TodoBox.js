@@ -36,8 +36,8 @@ function TodoBox({ todo, setTodolist }) {
     setTodolist(res.data);
   }
   return (
-    <div className="mb-7">
-      <span className="mx-3  bg-green-300 rounded-lg text-xl px-5 py-1">
+    <div className="mb-7 px-5 bg-red-100 rounded-md flex justify-between h-[50px] py-3">
+      <span className="mr-3  bg-green-300 rounded-lg text-xl px-5 ">
         {todo.id}
       </span>
 
