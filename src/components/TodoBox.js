@@ -35,8 +35,28 @@ function TodoBox({ todo, setTodolist }) {
     setIsUpdate(false);
     setTodolist(res.data);
   }
+  function RootDiv(e) {
+    if (e.target.id === 'deleteButton') {
+      DeleteHandler();
+    } else if (e.target.id === 'checkbox') {
+      ClickHandler();
+    } else if (e.target.id === 'updateButton') {
+      if (isUpdate === true) {
+        UpdateHandler();
+      } else {
+        setIsUpdate(true);
+        setUpdateTodo(todo.todo);
+      }
+    } else if (e.target.id === 'cancelButton') {
+      setIsUpdate(false);
+      setUpdateTodo(todo.todo);
+    }
+  }
   return (
-    <div className="mb-7 px-5 bg-red-100 rounded-md flex justify-between h-[50px] py-3">
+    <div
+      onClick={(e) => RootDiv(e)}
+      className="mb-7 px-5 bg-red-100 rounded-md flex justify-between h-[50px] py-3"
+    >
       <span className="mr-3  bg-green-300 rounded-lg text-xl px-5 ">
         {todo.id}
       </span>
@@ -44,12 +64,7 @@ function TodoBox({ todo, setTodolist }) {
       {isCompleted === true ? (
         <>
           <span className=" line-through">{todo.todo}</span>
-          <input
-            type="checkbox"
-            className="ml-7"
-            onChange={ClickHandler}
-            checked
-          ></input>
+          <input id="checkbox" type="checkbox" className="ml-7" checked></input>
         </>
       ) : (
         <>
@@ -62,11 +77,7 @@ function TodoBox({ todo, setTodolist }) {
           ) : (
             <>
               <span>{todo.todo}</span>
-              <input
-                type="checkbox"
-                className="ml-7"
-                onClick={ClickHandler}
-              ></input>
+              <input id="checkbox" type="checkbox" className="ml-7"></input>
             </>
           )}
         </>
@@ -75,10 +86,7 @@ function TodoBox({ todo, setTodolist }) {
         <>
           {isCompleted === true ? null : (
             <button
-              onClick={() => {
-                setIsUpdate(true);
-                setUpdateTodo(todo.todo);
-              }}
+              id="updateButton"
               className="ml-5 border-2 bg-pink-300 rounded-md border-red-300"
             >
               수정
@@ -86,7 +94,7 @@ function TodoBox({ todo, setTodolist }) {
           )}
 
           <button
-            onClick={DeleteHandler}
+            id="deleteButton"
             className="ml-5 border-2 bg-red-500 rounded-md border-red-300"
           >
             삭제
@@ -95,16 +103,13 @@ function TodoBox({ todo, setTodolist }) {
       ) : (
         <>
           <button
-            onClick={() => {
-              setIsUpdate(false);
-              setUpdateTodo(todo.todo);
-            }}
+            id="cancelButton"
             className="ml-5 border-2 bg-pink-300 rounded-md border-red-300"
           >
             취소
           </button>
           <button
-            onClick={UpdateHandler}
+            id="updateButton"
             className="ml-5 border-2 bg-blue-500 rounded-md border-red-300"
           >
             수정

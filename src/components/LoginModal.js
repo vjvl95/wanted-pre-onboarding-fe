@@ -13,21 +13,20 @@ const LoginModal = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showLoginModal, setShowLoginModal] = useRecoilState(loginModalState);
-  const [showRegisterModal, setShowRegisterModal] = useRecoilState(
-    registerModalState
-  );
+  const [showRegisterModal, setShowRegisterModal] =
+    useRecoilState(registerModalState);
   const [buttonAct, setButtonAct] = useState(false);
 
-  const submitHandler = async e => {
+  const submitHandler = async (e) => {
     e.preventDefault();
     try {
       const res = await API.post('/auth/signin', {
         email,
-        password
+        password,
       });
       const token = res.data.access_token;
       console.log('로그인 성공!');
-      sessionStorage.setItem('userToken', token);
+      localStorage.setItem('userToken', token);
       setShowLoginModal(false);
       document.location.href = '/todo';
     } catch (err) {
@@ -46,16 +45,6 @@ const LoginModal = () => {
     }
   }, [email, password]);
 
-  const validateEmail = email => {
-    if (email !== '') {
-      return email
-        .toLowerCase()
-        .match(
-          /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-        );
-    }
-    return false;
-  };
   const isEmailValid = validateEmail(email);
   const isPasswordValid = password.length >= 8;
 
@@ -76,7 +65,7 @@ const LoginModal = () => {
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                 placeholder="name@email.com"
                 value={email}
-                onChange={e => setEmail(e.target.value)}
+                onChange={(e) => setEmail(e.target.value)}
               />
               {!isEmailValid && (
                 <p className="text-red-500 text-xs italic px-2.5">
@@ -96,7 +85,7 @@ const LoginModal = () => {
                 placeholder="••••••••"
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                 value={password}
-                onChange={e => setPassword(e.target.value)}
+                onChange={(e) => setPassword(e.target.value)}
               />
               {!isPasswordValid && (
                 <p className="text-red-500 text-xs px-2.5 italic">
@@ -135,3 +124,14 @@ const LoginModal = () => {
 };
 
 export default LoginModal;
+
+const validateEmail = (email) => {
+  if (email !== '') {
+    return email
+      .toLowerCase()
+      .match(
+        /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+      );
+  }
+  return false;
+};

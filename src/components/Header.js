@@ -2,12 +2,12 @@ import { useEffect } from 'react';
 
 function Header() {
   function ClickHander() {
-    sessionStorage.removeItem('userToken');
+    localStorage.removeItem('userToken');
     document.location.href = '/';
   }
   return (
     <>
-      {sessionStorage.getItem('userToken') !== null ? (
+      {localStorage.getItem('userToken') !== null ? (
         <div className="flex justify-end">
           <button
             onClick={ClickHander}

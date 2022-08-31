@@ -6,9 +6,8 @@ import { loginModalState, registerModalState } from '../core/atoms/modalState';
 
 function Home() {
   const [showLoginModal, setShowLoginModal] = useRecoilState(loginModalState);
-  const [showRegisterModal, setShowRegisterModal] = useRecoilState(
-    registerModalState
-  );
+  const [showRegisterModal, setShowRegisterModal] =
+    useRecoilState(registerModalState);
   function onClickLogin() {
     setShowLoginModal(true);
   }
@@ -16,7 +15,7 @@ function Home() {
     setShowRegisterModal(true);
   }
   useEffect(() => {
-    if (sessionStorage.getItem('userToken') !== null) {
+    if (localStorage.getItem('userToken') !== null) {
       document.location.href = '/todo';
     }
   });

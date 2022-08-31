@@ -20,12 +20,12 @@ const RegisterModal = () => {
     }
   }, [email, password]);
 
-  const submitHandler = async e => {
+  const submitHandler = async (e) => {
     e.preventDefault();
     try {
       await API.post('/auth/signup', {
         email,
-        password
+        password,
       });
 
       console.log('회원가입 성공!');
@@ -35,16 +35,6 @@ const RegisterModal = () => {
     }
   };
 
-  const validateEmail = email => {
-    if (email !== '') {
-      return email
-        .toLowerCase()
-        .match(
-          /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-        );
-    }
-    return false;
-  };
   const isEmailValid = validateEmail(email);
   const isPasswordValid = password.length >= 8;
 
@@ -66,7 +56,7 @@ const RegisterModal = () => {
                   className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                   placeholder="name@email.com"
                   value={email}
-                  onChange={e => setEmail(e.target.value)}
+                  onChange={(e) => setEmail(e.target.value)}
                 />
                 {!isEmailValid && (
                   <p className="text-red-500 text-xs italic px-2.5">
@@ -86,7 +76,7 @@ const RegisterModal = () => {
                   placeholder="••••••••"
                   className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
                   value={password}
-                  onChange={e => setPassword(e.target.value)}
+                  onChange={(e) => setPassword(e.target.value)}
                 />
                 {!isPasswordValid && (
                   <p className="text-red-500 text-xs px-2.5 italic">
@@ -116,3 +106,13 @@ const RegisterModal = () => {
 };
 
 export default RegisterModal;
+const validateEmail = (email) => {
+  if (email !== '') {
+    return email
+      .toLowerCase()
+      .match(
+        /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+      );
+  }
+  return false;
+};

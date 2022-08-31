@@ -1,4 +1,3 @@
-import './App.css';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Home from './pages/Home';
 import Todo from './pages/Todo';
@@ -11,7 +10,6 @@ function App() {
     <>
       <RecoilRoot>
         <Header />
-
         <BrowserRouter>
           <Routes>
             <Route exact path="/" element={<Home />} />

@@ -6,10 +6,9 @@ function Todo() {
   const [todo, setTodo] = useState('');
   const [todolist, setTodolist] = useState([]);
   useEffect(() => {
-    if (sessionStorage.getItem('userToken') === null) {
+    if (localStorage.getItem('userToken') === null) {
       document.location.href = '/';
     }
-
     async function getTodolist() {
       const res = await API.get('/todos');
       setTodolist(res.data);
